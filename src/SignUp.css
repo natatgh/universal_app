@@ -1,0 +1,288 @@
+.AppName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+}
+
+.AppName img {
+    width: 60px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+/* Ajustando o posicionamento dos elementos após a .password-section */
+.password-section + .input-field{
+    margin-top: -1.5rem;  /* Ajuste este valor conforme necessário */
+}
+
+.input-field {
+    position: relative;
+    margin-top: 2rem;
+    width: 100%;  /* Para tornar os campos responsivos */
+}
+
+/* Password Strength Bar and Help Icon */
+.password-section {
+    display: flex;
+}
+
+.help-tooltip {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 5px;
+    top: -30px;
+    right: -50px;
+    width: 200px;
+    font-size: 0.8rem;
+    z-index: 10;
+}
+
+.help-icon:hover .help-tooltip {
+    display: block;
+}
+
+.input-field input {
+    width: 88%;
+    border: 1px solid #a7a7a7;
+    border-radius: 25px;
+    padding: 0.75rem 1rem;
+    background-color: transparent;
+    color: #F1F3F8;
+    position: relative;
+    z-index: 1;
+}
+
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    pointer-events: none;
+    z-index: 2;
+    color: #F1F3F8;
+}
+
+.input-field label::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    right: -10px;
+    bottom: 0;
+    background-color: #382230;
+    z-index: -1;
+    transition: 0.3s all;
+    border-radius: 15px;
+    opacity: 0;
+}
+
+.input-field input:valid + label,
+.input-field input:focus + label {
+    top: 0;
+    left: 1.5rem;
+    font-size: 0.8rem;
+    color: #EA5455;
+}
+
+.input-field input:valid + label::before,
+.input-field input:focus + label::before {
+    opacity: 1;
+}
+
+.input-field input:focus {
+    outline: none;
+}
+
+#already_have_account {
+    text-align: center;
+    font-size: 15px;
+}
+
+.forgot_password,
+#not_have_account {
+    text-align: center;
+    font-size: 15px;
+}
+
+.forgot_password {
+    margin-top: 2rem;
+}
+
+.forgot_password > a {
+    color: #F1F3F8;
+}
+
+button {
+    padding: 1rem 1rem;
+    border: none;
+    border-radius: 35px;
+    background-color: #EA5455;
+    color: #F1F3F8;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-bottom: 2rem;
+    font-size: 15px;
+    margin-top: 2rem;
+}
+
+button:hover {
+    background-color: #9C2A2A;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+button:focus {
+    animation: pulse 1s;
+}
+
+.social-button:focus {
+    animation: pulse 1s;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.options > li {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #a7a7a7;
+    margin: 0 1rem;
+    list-style-type: none;
+}
+
+#other_options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.social-button {
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    border: 1px solid #a7a7a7;
+    background-color: transparent;
+}
+
+.social-button:hover {
+    background-color: transparent;
+}
+
+.social-button img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.password-strength-bar {
+    height: 10px;
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.password-strength-bar div {
+    height: 100%;
+    width: 0;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.help-icon {
+    color: #ff9933; /* Cor de aviso */
+    width: 20%;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    background: transparent;
+}
+
+.help-icon:hover {
+    background: transparent;
+}
+
+.help-tooltip {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-75%) translateX(-0.5rem); 
+    white-space: nowrap;
+    font-size: 0.8rem;
+    z-index: 2;
+}
+
+.help-icon:hover .help-tooltip {
+    display: block;
+}
+
+#already_have_account{
+    height: 100%;
+    margin-top: 5rem;
+}
+
+.password-error {
+    margin-top: 2rem;
+    color: red;
+    text-align: center;
+    padding: 1rem 3rem;
+}
+
+@media (min-width: 768px) {
+    .input-field input {
+        width: 95%;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 2rem;
+        border-radius: 50px;
+    }
+
+    #other_options {
+        gap: 0rem;
+    }
+}
+
+@media (max-height: 767px) {
+    .AppName {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #other_options {
+        margin-bottom: 0.25rem;
+    }
+
+    #already_have_account {
+        margin-top: 2rem;
+    }
+}

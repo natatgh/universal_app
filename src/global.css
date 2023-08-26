@@ -1,0 +1,29 @@
+/* Base styling */
+body, html {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(to bottom, #382230 50%, #201c2a 90%);
+    color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+    color: #EA5455;
+    transition: color 0.3s;
+}
+  
+a:hover {
+    color: #9C2A2A;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}

@@ -1,52 +1,65 @@
 import React from 'react';
+import './global.css';
 import './App.css';
+import './SignUp.css';
+
+// Constantes para imagens
+const LOGO_URL = "/img/logo-geral.png";
+const FACEBOOK_LOGO_URL = "/img/facebook-logo.png";
+const GOOGLE_LOGO_URL = "/img/google-logo.png";
+const APPLE_LOGO_URL = "/img/apple-logo.png";
+
+// Componentes menores
+const Logo = () => (
+    <div className="AppName">
+        <img src={LOGO_URL} alt="Foodie logo" style={{ width: "50px", marginRight: "10px" }} />
+        <strong>Foodie</strong>
+    </div>
+);
+
+const InputField = ({ type, id, placeholder }) => (
+    <div className="input-field" id={`${id}-field`}>
+        <input type={type} placeholder=" " id={id} required />
+        <label htmlFor={id}>{placeholder}</label>
+    </div>
+);
+
+const SocialButton = ({ className, logo, alt }) => (
+    <button className={`social-button ${className}`}>
+        <img src={logo} alt={alt} />
+    </button>
+);
 
 function App() {
     return (
         <div className="App">
-            <div className="AppName">
-                <img src="/img/logo-geral.png" alt="Foodie logo" style={{ width: "50px", marginRight: "10px" }} />
-                <strong>Foodie</strong>
-            </div>
-
-            <div className="input-field" id="email-field">
-                <input type="email" placeholder=" " id="email-input" required />
-                <label htmlFor="email-input">Enter your email</label>
-            </div>
-
-            <div className="input-field" id="password-field">
-                <input type="password" placeholder=" " id="password-input" required />
-                <label htmlFor="password-input">Enter your password</label>
-            </div>
+            <Logo />
+            
+            <InputField type="email" id="email-input" placeholder="Enter your email" />
+            <InputField type="password" id="password-input" placeholder="Enter your password" />
 
             <div className="forgot_password">
                 <a href="#forgot-password">Forgot password?</a>
             </div>
 
             <div id="enter_button">
-                <button type="submit"><strong>SIGN UP</strong></button>
+                <button type="submit"><strong>ENTER</strong></button>
             </div>
 
             <div className="options">
-                <li></li>
+                <li></li> {/* Consider using proper separators or divs */}
                 or login with
-                <li></li>
+                <li></li> {/* Consider using proper separators or divs */}
             </div>
 
             <div id="other_options">
-                <button className="social-button facebook">
-                    <img src="/img/facebook-logo.png" alt="Login with Facebook" />
-                </button>
-                <button className="social-button google">
-                    <img src="/img/google-logo.png" alt="Login with Google" />
-                </button>
-                <button className="social-button apple">
-                    <img src="/img/apple-logo.png" alt="Login with Apple ID" />
-                </button>
+                <SocialButton className="facebook" logo={FACEBOOK_LOGO_URL} alt="Login with Facebook" />
+                <SocialButton className="google" logo={GOOGLE_LOGO_URL} alt="Login with Google" />
+                <SocialButton className="apple" logo={APPLE_LOGO_URL} alt="Login with Apple ID" />
             </div>
 
             <div id="not_have_account">
-                Don't have an account? <a href="#register">Register now</a>
+                Don't have an account? <a href="/register">Sign Up</a>
             </div>
         </div>
     );
